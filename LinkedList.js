@@ -1,30 +1,33 @@
 class LinkedList {
-    constructor() {
-        this.head = null
-        this.length = 0
-    }
+  constructor() {
+    this.head = null;
+    this.length = 0;
+  }
 
-    insertAtHead(data) {
-        const newNode = new Node(data, this.head)
-        this.head = newNode
-        this.length++
-    }
+  insertAtHead(data) {
+    const newNode = new Node(data, this.head);
+    this.head = newNode;
+    this.length++;
+  }
+
+  getByIndex(index) {
+    if (index < 0 || index >= this.length) return null
+  }
 }
 
 class Node {
-    constructor(value, next) {
-        this.value = value
-        this.next = next
-    }
+  constructor(value, next) {
+    this.value = value;
+    this.next = next;
+  }
 }
 
-LinkedList.fromValues = function(...values) {
-    const list = new LinkedList()
-    for (let i = values.length - 1; i >= 0; i--) {
-        list.insertAtHead(values[i])
-    }
-    return list
-}
-
+LinkedList.fromValues = function (...values) {
+  const list = new LinkedList();
+  for (let i = values.length - 1; i >= 0; i--) {
+    list.insertAtHead(values[i]);
+  }
+  return list;
+};
 
 module.exports = LinkedList;
